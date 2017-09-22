@@ -49,7 +49,7 @@ handlebars.registerHelper('repeat', function(item) {
   var out = '<tr>';
     for (name in item) {
       out +=
-      '<th>'+item[name].full_name+'</th>';
+      '<th>'+item[name].full_name+'</th>'
     }
   return out + '</tr>';
 });

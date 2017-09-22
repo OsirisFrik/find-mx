@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/OsirisFrik/findoja.git"
+    "url": "git+https://github.com/OsirisFrik/find-mx.git"
   },
   "author": "OsirisFrik",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/OsirisFrik/findoja/issues"
+    "url": "https://github.com/OsirisFrik/find-mx.git"
   },
-  "homepage": "https://gitlab.com/OsirisFrik/findoja#README",
+  "homepage": "https://github.com/OsirisFrik/find-mx.git#README",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.1",
