@@ -22,7 +22,6 @@ apiCtrl.personas = function (req, res) {
 
 apiCtrl.getImage = function (req, res) {
   var imageFile = req.params.file;
-  console.log(imageFile);
   var path_file = './uploads/img/personas/' + imageFile;
 
   fs.exists(path_file, function(exists) {

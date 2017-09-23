@@ -53,7 +53,9 @@ app.use(getPublic, getModules);
 handlebars.registerHelper('repeat', function(item) {
   var out = '<tr>';
   for (name in item) {
-    out += '<th>' + item[name].full_name + '</th>'
+    out += '<th><img src="/api/v1/images/' + item[name].image + '" class="perosna-img"></th>'+
+    '<th>'+item[name].full_name+'</th>'+
+    '<th>'+item[name].age+'</th>';
   }
   return out + '</tr>';
 });

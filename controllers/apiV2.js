@@ -25,4 +25,8 @@ apiCtrl.personas = function (req, res) {
   });
 }
 
+apiCtrl.registro = function (req, res) {
+  console.log(req.body);
+}
+
 module.exports = apiCtrl;

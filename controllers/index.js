@@ -11,9 +11,8 @@ var indexCtrl = {};
 
 indexCtrl.home = function(req, res) {
   Persona.find((err, personas) => {
-    console.log(personas);
+    res.render('index', {title: 'Home', message: messages.message, personas: personas});
   });
-  res.render('index', {title: 'Home', message: messages.message});
 }
 
 module.exports = indexCtrl;
