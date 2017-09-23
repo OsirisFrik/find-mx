@@ -1,6 +1,8 @@
 'use strict'
 
 const mongoose = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
+
 var Schema = mongoose.Schema;
 
 var Persona = Schema({
@@ -20,5 +22,7 @@ var Persona = Schema({
   image: String,
   find: Boolean
 });
+
+Persona.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('personas', Persona);
