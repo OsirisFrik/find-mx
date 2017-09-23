@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>FINDoja</title>
-    <script src="" charset="utf-8"></script>
+    <title>{{title}} FIND MX</title>
+    <link rel="stylesheet" href="toastr/build/toastr.min.css">
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="icons/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -38,10 +38,17 @@
     <script src="jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="toastr/build/toastr.min.js" charset="utf-8"></script>
     <script type="text/javascript">
       $(function () {
         $('[data-toggle="tooltip"]').tooltip()
-      })
+      });
     </script>
+    {{#if message}}
+    <script type="text/javascript">
+      toastr.success('Se ha guardado el registro');
+      console.log(true);
+    </script>
+    {{/if}}
   </body>
 </html>

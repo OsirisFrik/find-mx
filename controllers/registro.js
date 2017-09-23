@@ -3,6 +3,7 @@
 var registro = {};
 
 const Persona = require('../models/persona');
+const messages = require('./message');
 
 registro.registrar = function(req, res) {
   res.render('registro');
@@ -50,9 +51,8 @@ registro.registro = function(req, res) {
 
         persona.save((err, save) => {
           if (!err) {
-            console.log(save);
-            console.log(true);
-            res.send(save)
+            messages.message = 'Se ha guardado el registro';
+            res.redirect('/');
           }
         });
       }

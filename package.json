@@ -32,6 +32,7 @@
     "mongoose-pagination": "^1.0.0",
     "path": "^0.12.7",
     "popper.js": "^1.12.5",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "toastr": "^2.1.2"
   }
 }
