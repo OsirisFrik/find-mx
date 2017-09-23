@@ -5,14 +5,16 @@ const path = require('path');
 const fs = require('fs');
 
 const Persona = require('../models/persona');
+const messages = require('./message');
 
 var indexCtrl = {};
 
 indexCtrl.home = function(req, res) {
+  console.log(messages);
   Persona.find((err, personas) => {
     console.log(personas);
   });
-  res.render('index');
+  res.render('index', {title: 'Home', message: messages.message});
 }
 
 indexCtrl.getImageFile = function(req, res) {
