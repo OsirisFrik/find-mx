@@ -27,4 +27,18 @@ apiCtrl.personas = function (req, res) {
   });
 }
 
+apiCtrl.getImage = function (req, res) {
+  var imageFile = req.params.file;
+  console.log(imageFile);
+  var path_file = './uploads/img/personas/' + imageFile;
+
+  fs.exists(path_file, function(exists) {
+    if (exists) {
+      res.sendFile(path.resolve(path_file));
+    } else {
+      res.status(404).send({message: 'No se ha encontrado la imagen'})
+    }
+  });
+}
+
 module.exports = apiCtrl;

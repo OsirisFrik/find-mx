@@ -7,6 +7,7 @@ const api = require('../controllers/api');
 
 var route = express.Router();
 
-route.get('/personas', api.personas)
+route.get('/personas', api.personas);
+route.get('/images/:file', api.getImage);
 
 module.exports = route;
