@@ -37,3 +37,11 @@ POST: /registrar <--- registro de personas
   find: Boolean
 }
 ```
+
+```
+GET: /api/v1/personas <--- optener todas las personas
+```
+
+```
+GET /api/v1/images/:file <--- optener imagenes
+```
