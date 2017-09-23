@@ -11,6 +11,7 @@ const port = process.env.PORT || 3000;
 var app = express();
 
 const index = require('./routes/index');
+const api = require('./routes/api');
 
 // bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -55,9 +56,10 @@ handlebars.registerHelper('repeat', function(item) {
 });
 
 app.use('/', index);
+app.use('/api/v1/', api);
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/lost-people', { useMongoClient: true }, (err, res) => {
+mongoose.connect('mongodb://findApp:tuCola2017@34.214.176.137:27017/find-mx', { useMongoClient: true }, (err, res) => {
   if (err) {
     console.log('Error al conectar a la base de datos'.red);
     throw err;
