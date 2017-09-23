@@ -11,7 +11,8 @@ const port = process.env.PORT || 3000;
 var app = express();
 
 const index = require('./routes/index');
-const api = require('./routes/api');
+const apiV1 = require('./routes/apiV1');
+const apiV2 = require('./routes/apiV2');
 const config = require('./config.json');
 
 const mongoConnect = 'mongodb://' + config.mongo_user + ':' + config.mongo_pws + '@' + config.mongo_uri + ':' + config.mongo_port + '/' + config.mongo_db;
@@ -58,7 +59,8 @@ handlebars.registerHelper('repeat', function(item) {
 });
 
 app.use('/', index);
-app.use('/api/v1/', api);
+app.use('/api/v1/', apiV1);
+app.use('/api/v2/', apiV2);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoConnect, {

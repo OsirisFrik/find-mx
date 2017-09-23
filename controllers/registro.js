@@ -1,8 +1,11 @@
 'use strict'
 
+const moment = require('moment');
+
 var registro = {};
 
 const Persona = require('../models/persona');
+const messages = require('./message');
 
 registro.registrar = function(req, res) {
   res.render('registro');
@@ -44,15 +47,21 @@ registro.registro = function(req, res) {
         persona.sex = datos.sex;
         persona.last_location = datos.last_location;
         persona.state = datos.state;
-        persona.contact = datos.contact;
+        persona.contact = {
+          parent: datos.contact_parent,
+          full_name: datos.contact_name,
+          email: datos.contact_email,
+          phone: datos.contact_phone,
+          country_code: datos.contact_countryCode
+        };
         persona.caract = datos.caract;
         persona.image = data.image;
+        persona.timestamp = moment().unix();
 
         persona.save((err, save) => {
           if (!err) {
-            console.log(save);
-            console.log(true);
-            res.send(save)
+            messages.message = 'Se ha guardado el registro';
+            res.redirect('/');
           }
         });
       }
