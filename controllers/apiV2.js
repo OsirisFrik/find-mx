@@ -9,7 +9,7 @@ const Persona = require('../models/persona');
 var apiCtrl = {};
 
 apiCtrl.personas = function (req, res) {
-  var limit = req.query.limitTo || 15;
+  var limit = req.query.limit || 15;
   var page = req.query.page || 1;
 
   limit = JSON.parse(limit);

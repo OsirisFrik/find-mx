@@ -20,7 +20,8 @@ var Persona = Schema({
   },
   caract: String,
   image: String,
-  find: Boolean
+  find: Boolean,
+  timestamp: Number
 });
 
 Persona.plugin(mongoosePaginate);
