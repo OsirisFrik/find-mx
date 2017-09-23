@@ -12,6 +12,9 @@ var app = express();
 
 const index = require('./routes/index');
 const api = require('./routes/api');
+const config = require('./config.json');
+
+const mongoConnect = 'mongodb://' + config.mongo_user + ':' + config.mongo_pws + '@' + config.mongo_uri + ':' + config.mongo_port + '/' + config.mongo_db;
 
 // bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -48,10 +51,9 @@ app.use(getPublic, getModules);
 
 handlebars.registerHelper('repeat', function(item) {
   var out = '<tr>';
-    for (name in item) {
-      out +=
-      '<th>'+item[name].full_name+'</th>'
-    }
+  for (name in item) {
+    out += '<th>' + item[name].full_name + '</th>'
+  }
   return out + '</tr>';
 });
 
@@ -59,14 +61,16 @@ app.use('/', index);
 app.use('/api/v1/', api);
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://findApp:tuCola2017@34.214.176.137:27017/find-mx', { useMongoClient: true }, (err, res) => {
+mongoose.connect(mongoConnect, {
+  useMongoClient: true
+}, (err, res) => {
   if (err) {
     console.log('Error al conectar a la base de datos'.red);
     throw err;
   } else {
     console.log('Se ha conectado a la base de datos'.magenta);
 
-    app.listen(port, function () {
+    app.listen(port, function() {
       console.log(colors.cyan('Servidor corriendo en el puerto', port));
     });
   }

@@ -1,0 +1,7 @@
+{
+  "mongo_uri": "URI TO YOU MONGODB SERVER",
+  "mongo_port": "PORT TO MONGODB SERVER",
+  "mongo_db": "DATABASE NAME",
+  "mongo_user": "USER DB",
+  "mongo_pws": "USER PASSWORD DB"
+}
