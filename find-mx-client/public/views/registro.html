@@ -1,0 +1,191 @@
+<style media="screen">
+  .img-circle {
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+  }
+
+</style>
+
+<div class="container" ng-controller="registro">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="center">Registrar persona</h1>
+      <hr>
+      <form class="" ng-submit="registrar()" enctype="multipart/form-data">
+        <div class="row justify-content-center">
+          <div class="col-md-4 center">
+            <div class="row">
+              <div class="col">
+                <label for="image-input" data-toggle="tooltip" data-placement="bottom" title="Se requiere una imagen de la persona, lo mas reciente posible">
+                  <img src="img/image_file.png" id="image" alt="" class="img-circle">
+                  <hr>
+                  <p class="btn btn-primary">Añadir imagen</p>
+                  <p class="center">Añada una fotografia donde se pueda identificar a la persona</p>
+                </label>
+                <input type="file" name="image" id="image-input" value="" style="display: none" onchange="getImage(this)" ng-files="reg.image">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="name">
+                    Nombre completo
+                    <i class='fa fa-question-circle' data-toggle="tooltip" data-placement="right" title="Nombre completo de la pesona buscada"></i>
+                  </label>
+                  <input type="text" class="form-control" id="name" placeholder="Ejem: Carlos Antonio López Torres" name="name" ng-model="reg.name">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <div class="form-group">
+                  <label for="age">
+                    Edad
+                  </label>
+                  <input type="number" class="form-control" name="age" value="" min="1" max="99" maxlength="2" placeholder="20" ng-model="reg.age">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="sex">Sexo</label>
+                  <select class="form-control" name="sex">
+                    <option value="" selected disabled>Seleccione uno</option>
+                    <option value="H">Hombre</option>
+                    <option value="M">Mujer</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="state">Estado</label>
+                  <select class="form-control" name="state">
+                    <option value="" disabled selected>Seleccione un estado</option>
+                    <option value="CDMX">Ciudad de México</option>
+                    <option value="EDMX">Estado de México</option>
+                    <option value="Guerrero">Guerrero</option>
+                    <option value="Hidalgo">Hidalgo</option>
+                    <option value="Morelos">Morelos</option>
+                    <option value="Puebla">Puebla</option>
+                    <option value="Veracruz">Veracruz</option>
+                    <option value="Tlaxcala">Tlaxcala</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="caract">
+                    Caracteristicas y observaciones
+                    <i class='fa fa-question-circle' data-toggle="tooltip" data-placement="right" title="Caracteristicas de la persona para ser reconocida y/o observaciones como nesecidades especiales"></i>
+                  </label>
+                  <textarea name="caract" rows="8" cols="80" class="form-control" ng-model="reg.caract"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="last_location">
+                    Ultimo avistamiento
+                    <i class='fa fa-question-circle' data-toggle="tooltip" data-placement="right" title="Ultimo lugar en el que se le vio o se tenia conocimiento de su estancia"></i>
+                  </label>
+                  <input type="text" class="form-control" name="last_location" id="" placeholder="" ng-model="reg.last_location">
+                </div>
+              </div>
+            </div>
+            <div id="personalInfo" ng-show="!personalInfo">
+              <hr>
+              <div class="row">
+                <div class="col">
+                  <label for="">
+                    Desea añadir datos de contato?
+                    <i class='fa fa-question-circle' data-toggle="tooltip" data-placement="right" title="Añada datos de contacto personales para en caso de ser localizada la persona un tercero pueda comunicarle"></i>
+                  </label>
+                  &nbsp;
+                  <button type="button" class="btn btn-warning" ng-click="inputPersonalInfo()">
+                    Si
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="addInfo" ng-show="personalInfo">
+              <hr>
+              <h5>Información de contacto</h5>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="contact-name">Nombre</label>
+                    <input type="text" class="form-control" id="" placeholder="" name="contact_name" ng-model="reg.contact_name">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="contact_email">Correo electronico</label>
+                    <input type="email" class="form-control" id="" placeholder="" name="contact_email" ng-model="reg.contact_email">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="form-group">
+                    <label for="country_code">Codigo de región</label>
+                    <select class="form-control" name="contact_countryCode" ng-model="reg.contact_countryCode">
+                      <option value="52">MX +52</option>
+                      <option value="1">US +1</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="contact_phone">Telefono</label>
+                    <input type="number" class="form-control" id="" placeholder="" maxlength="10" max="9999999999" name="contact_phone" ng-model="reg.contact_phone">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="parent">Parentesco</label>
+                    <input type="text" class="form-control" id="" placeholder="" name="parent" name="contact_parent" ng-model="reg.contact_parent">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="row align-items-end">
+              <div class="col">
+                <button type="submit" class="btn btn-success" name="button">Registrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+
+<style media="screen">
+  .no-display {
+    display: none;
+  }
+
+</style>
+
+<script type="text/javascript">
+  function getImage(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#image').attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>

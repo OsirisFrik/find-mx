@@ -21,6 +21,15 @@ const mongoConnect = 'mongodb://' + config.mongo_user + ':' + config.mongo_pws +
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Controll-Allow-Headers', '*');
+  res.header('Access-Controll-Allow-Methos', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+  res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+
+  next();
+});
+
 // Express Validator
 app.use(exVal({
   errorFormatter: function(param, msg, value) {

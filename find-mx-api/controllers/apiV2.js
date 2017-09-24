@@ -26,7 +26,18 @@ apiCtrl.personas = function (req, res) {
 }
 
 apiCtrl.registro = function (req, res) {
-  console.log(req.body);
+  if (req.files && req.files.image) {
+    var file_path = req.files.image.path;
+    var file_split = file_path.split('/');
+    var file_name = file_split[3];
+    var ext_split = file_name.split('.');
+    var ext_file = ext_split[1];
+    var data = {
+      image: file_name
+    };
+    console.log(data);
+    console.log(req.body);
+  }
 }
 
 module.exports = apiCtrl;

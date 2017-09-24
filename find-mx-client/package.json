@@ -1,0 +1,19 @@
+{
+  "name": "bower",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp serve"
+  },
+  "author": "osirisfrik",
+  "license": "ISC",
+  "devDependencies": {
+
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-load-plugins": "^1.5.0"
+  }
+}
